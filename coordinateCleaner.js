@@ -58,12 +58,9 @@
                 if (!(Dlat >= -90 && Dlat <= 90 && Dlon >= -180 && Dlon <= 180)) {
                     showDialog("<div class='alertmessageIP alertmessage'>Latitude entries must be -90 and 90 and longitude entries must be between -180 and 180.");
                 } else {
-                    console.log(1)
                     latD = latDproc[2] ? (((parseFloat(latDproc[2]) / 60.0) + parseFloat(latDproc[1])) / 60.0) + (Dlat) : latDproc.length>1?(parseFloat(latDproc[1]) / 60.0) + (Dlat):Dlat;
                     lonD = lonDproc[2] ? (((parseFloat(lonDproc[2]) / 60.0) + parseFloat(lonDproc[1])) / 60.0) + (Dlon) : lonDproc.length>1?(parseFloat(lonDproc[1]) / 60.0) + (Dlon):Dlon;
-                    console.log(2)
-                    console.log(latD, lonD)
-                    return [latD, lonD]
+                    return [latD.toFixed(7), lonD.toFixed(7)]
                 }
             } else {
                 showDialog(x);
@@ -82,8 +79,10 @@
                 latD = mycoords[0].replace(/^\s+|\s+$/g, ''); //Remove leading and trailing white space
                 lonD = mycoords[1].replace(/^\s+|\s+$/g, ''); //Remove leading and trailing white space
                 var cors = processCoordinates(latD, lonD)
-                if(!(cors === undefined)){
+                if(cors && callback){
                 return callback(cors[0],cors[1])
+                }else if (cors){
+                 return ([cors[0],cors[1]])   
                 }
             }
         }
