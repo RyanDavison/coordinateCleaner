@@ -16,6 +16,6 @@ Currently the module only works for the NW hemisphere but that will be changed i
 All symbols and letters will be removed by the module.
  
 #Examples
-Entering "39°, -108°" will output [39,-108] 
-Entering "39 degrees, 108 degrees 24 Minutes" will output [39,-108.4]
+Entering "39°, -108°" will output [39,-108] <br>
+Entering "39 degrees, 108 degrees 24 Minutes" will output [39,-108.4]<br>
 Entering "N39, W108 24" will output [39,-108.4]
