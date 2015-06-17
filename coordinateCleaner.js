@@ -8,7 +8,6 @@ define(["dijit/ConfirmDialog"], function (Dialog) {
     });
 
     function showDialog(content) {
-        console.log('in show d')
         coordDialog.set("content", content);// + "<hr><br><button id='coordDialog' style='position:absolute;bottom:1em;right:1em;font-weight:bold;width:3.5em;height:2.1em;'>OK</button>");
         coordDialog.show();
     }
